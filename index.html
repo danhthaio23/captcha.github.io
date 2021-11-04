@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>NHẬP MÃ CAPTCHA</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="description" content="NHẬP MÃ CAPTCHA LÀ KẾT QUẢ CỦA BÀI TOÁN NÀY <(")" />
+<meta name="keywords" content="javascript, captcha, html, robot" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Huỳnh Mai Anh Kiệt" />
+</head>
+<body>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  var n1 = Math.round(Math.random() * 99 + 9999);
+  var n2 = Math.round(Math.random() * 99 + 9999);
+  $("#cau_hoi").val(n1 + " + " + n2);
+  $(".ten_form").submit(function (e) {
+  
+  if (eval($("#cau_hoi").val()) != $("#tra_loi").val()) {
+      $("#tra_loi").css('box-shadow', '0px 0px 7px red');
+      alert('Bạn hãy kiểm tra lại kết quả!');
+      e.preventDefault(); 
+    } 
+  });
+});
+</script>
+<center>
+<p>NHẬP MÃ CAPTCHA LÀ KẾT QUẢ CỦA BÀI TOÁN NÀY <(")</p>
+<form method='post' action='hmak.html' class='ten_form'>
+  <table border="0">
+    <tr><td>Câu hỏi:</td><td><input type="text" disabled="disabled" id="cau_hoi"/></td></tr>
+    <tr><td>Câu trả lời:</td><td><input type="text" id="tra_loi"/></td></tr>
+    <tr><td></td></tr> <tr><td><button type="submit" class="button">SUBMIT</button></td></tr>
+    </table>
+</form>
+
+</center>
+</body>
+</html>
